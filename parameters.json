@@ -1,0 +1,27 @@
+{
+    "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {
+        "affix": {
+            "value": "papermc-dev"
+        },
+        "escapedAffix": {
+            "value": "papermcdev"
+        },
+        "workspaceName": {
+            "value": "papermc-dev-analytics-workspace"
+        },
+        "storageName": {
+            "value": "papermcdevstorage"
+        },
+        "vnetName": {
+            "value": "papermc-dev-vnet"
+        },
+        "cappEnvSubnetName": {
+            "value": "papermc-dev-capp-env-subnet"
+        },
+        "paperShareName": {
+            "value": "papermc-dev-share"
+        }
+    }
+}
