@@ -64,14 +64,13 @@ module storageModule './ResourceModules/modules/storage/storage-account/main.bic
     name: storageName
     location: location
     supportsHttpsTrafficOnly: false
-    publicNetworkAccess: 'Enabled'
     skuName: 'Premium_LRS'
     kind: 'FileStorage'
     fileServices: {
       shares: [
         // File share server data
         {
-          enabledProtocols: 'NFS'
+          enabledProtocols: 'SMB'
           // rootSquash: 'NoRootSquash'
           name: paperShareName
           accessTier: 'Premium'

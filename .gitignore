@@ -1,0 +1,8 @@
+paper-docker/serverdata-host/
+paper-docker/serverdata-host/**/*
+
+paper-docker/serverdata2-host/
+paper-docker/serverdata2-host/**/*
+
+velocity-docker/serverdata-host/
+velocity-docker/serverdata-host/**/*

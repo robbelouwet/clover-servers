@@ -1,0 +1,55 @@
+version: "3"
+
+services:
+
+  velocity:
+    build:
+      context: .
+      dockerfile: ./velocity-docker/Dockerfile
+    networks:
+      mynet:
+        ipv4_address: 10.0.0.2
+    volumes:
+      - ./velocity-docker/serverdata-host:/data
+    ports:
+      - "25565:25565"
+    environment:
+      - VELOCITY_SECRET=supersecret
+      - PAPER1_HOST=10.0.0.3:25565
+      - PAPER2_HOST=10.0.0.4:25565
+
+  paper1:
+    build:
+      context: .
+      dockerfile: ./paper-docker/Dockerfile
+    networks:
+      mynet:
+        ipv4_address: 10.0.0.3
+    volumes:
+      - ./paper-docker/serverdata-host:/data
+    # ports:
+    #   - "25566:25565"
+    environment:
+      - VELOCITY_SECRET=supersecret
+
+  paper2:
+    build:
+      context: .
+      dockerfile: ./paper-docker/Dockerfile
+    networks:
+      mynet:
+        ipv4_address: 10.0.0.4
+    volumes:
+      - ./paper-docker/serverdata2-host:/data
+    # ports:
+    #   - "25567:25565"
+    environment:
+      - VELOCITY_SECRET=supersecret
+
+networks:
+  mynet:
+    name: velocity-vnet
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.0.0.0/24
