@@ -13,7 +13,7 @@ services:
       - "25565:25565"
     environment:
       - VELOCITY_SECRET=supersecret
-      - JVM_ARGS=-Xms1G -Xmx2G
+      - JVM_ARGS=-Xms512M -Xmx512M
       - PAPER1_HOST=10.0.0.3:25565
       - PAPER2_HOST=10.0.0.4:25565
 
@@ -28,7 +28,7 @@ services:
     #   - "25565:25565"
     environment:
       - VELOCITY_SECRET=supersecret
-      - JVM_ARGS=-Xms1G -Xmx2G
+      - JVM_ARGS=-Xms2G -Xmx2G
 
   paper2:
     image: robbelouwet/papermc
@@ -41,7 +41,7 @@ services:
     #   - "25565:25565"
     environment:
       - VELOCITY_SECRET=supersecret
-      - JVM_ARGS=-Xms1G -Xmx2G
+      - JVM_ARGS=-Xms2G -Xmx2G
 
 networks:
   mynet:
