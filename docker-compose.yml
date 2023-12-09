@@ -3,9 +3,7 @@ version: "3"
 services:
 
   velocity:
-    build:
-      context: .
-      dockerfile: ./velocity-docker/Dockerfile
+    image: robbelouwet/velocity
     networks:
       mynet:
         ipv4_address: 10.0.0.2
@@ -19,32 +17,30 @@ services:
       - PAPER2_HOST=10.0.0.4:25565
 
   paper1:
-    build:
-      context: .
-      dockerfile: ./paper-docker/Dockerfile
+    image: robbelouwet/papermc
     networks:
       mynet:
         ipv4_address: 10.0.0.3
     volumes:
       - ./paper-docker/serverdata-host:/data
     # ports:
-    #   - "25566:25565"
+    #   - "25565:25565"
     environment:
       - VELOCITY_SECRET=supersecret
+      - JVM_ARGS=-Xms1G -Xmx2G
 
   paper2:
-    build:
-      context: .
-      dockerfile: ./paper-docker/Dockerfile
+    image: robbelouwet/papermc
     networks:
       mynet:
         ipv4_address: 10.0.0.4
     volumes:
       - ./paper-docker/serverdata2-host:/data
     # ports:
-    #   - "25567:25565"
+    #   - "25565:25565"
     environment:
       - VELOCITY_SECRET=supersecret
+      - JVM_ARGS=-Xms1G -Xmx2G
 
 networks:
   mynet:

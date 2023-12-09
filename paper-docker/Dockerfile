@@ -2,7 +2,7 @@ FROM ubuntu:latest
 
 EXPOSE 25565
 
-COPY ./entrypoint.sh /entrypoint.sh
+COPY ./paper-docker/entrypoint.sh /entrypoint.sh
 
 VOLUME /data
 
