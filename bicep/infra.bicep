@@ -40,59 +40,59 @@ module defaultSubnetModule './ResourceModules/modules/network/virtual-network/su
   }
 }
 
-module pdnsStorageAccModule './ResourceModules/modules/network/private-dns-zone/main.bicep' = {
-  name: '${affix}-storage-acc-pds-deployment'
-  params: {
-    name: 'privatelink.file.core.windows.net'
-    location: 'global'
-    virtualNetworkLinks: [
-      {
-        virtualNetworkResourceId: vnetModule.outputs.resourceId
-      }
-    ]
-  }
-}
+// module pdnsStorageAccModule './ResourceModules/modules/network/private-dns-zone/main.bicep' = {
+//   name: '${affix}-storage-acc-pds-deployment'
+//   params: {
+//     name: 'privatelink.file.core.windows.net'
+//     location: 'global'
+//     virtualNetworkLinks: [
+//       {
+//         virtualNetworkResourceId: vnetModule.outputs.resourceId
+//       }
+//     ]
+//   }
+// }
 
 resource workspaceResource 'Microsoft.OperationalInsights/workspaces@2022-10-01' = {
   name: workspaceName
   location: location
 }
 
-module storageModule './ResourceModules/modules/storage/storage-account/main.bicep' = {
-  name: '${affix}-storage-deployment'
-  params: {
-    name: storageName
-    location: location
-    supportsHttpsTrafficOnly: false
-    skuName: 'Premium_LRS'
-    kind: 'FileStorage'
-    fileServices: {
-      shares: [
-        // File share server data
-        {
-          enabledProtocols: 'SMB'
-          // rootSquash: 'NoRootSquash'
-          name: paperShareName
-          accessTier: 'Premium'
-        }
-      ]
-      // lock: {
-      //   kind: 'CanNotDelete'
-      //   name: 'lock-delete'
-      // }
-    }
-    privateEndpoints: [
-      {
-        name: '${affix}-pe-storage-acc'
-        service: 'file'
-        subnetResourceId: defaultSubnetModule.outputs.resourceId
-        privateDnsZoneResourceIds: [
-          pdnsStorageAccModule.outputs.resourceId
-        ]
-      }
-    ]
-  }
-}
+// module storageModule './ResourceModules/modules/storage/storage-account/main.bicep' = {
+//   name: '${affix}-storage-deployment'
+//   params: {
+//     name: storageName
+//     location: location
+//     supportsHttpsTrafficOnly: false
+//     skuName: 'Premium_LRS'
+//     kind: 'FileStorage'
+//     fileServices: {
+//       shares: [
+//         // File share server data
+//         {
+//           enabledProtocols: 'SMB'
+//           // rootSquash: 'NoRootSquash'
+//           name: paperShareName
+//           accessTier: 'Premium'
+//         }
+//       ]
+//       // lock: {
+//       //   kind: 'CanNotDelete'
+//       //   name: 'lock-delete'
+//       // }
+//     }
+//     privateEndpoints: [
+//       {
+//         name: '${affix}-pe-storage-acc'
+//         service: 'file'
+//         subnetResourceId: defaultSubnetModule.outputs.resourceId
+//         privateDnsZoneResourceIds: [
+//           pdnsStorageAccModule.outputs.resourceId
+//         ]
+//       }
+//     ]
+//   }
+// }
 
 module workspaceModule './ResourceModules/modules/operational-insights/workspace/main.bicep' = {
   name: '${workspaceName}-deployment'
