@@ -1,12 +1,12 @@
-FROM ubuntu:latest
+FROM --platform=linux/amd64 ubuntu:latest
 
-EXPOSE 25565
+EXPOSE 25565/tcp
+EXPOSE 25565/udp
 
-COPY ./paper-docker/entrypoint.sh /entrypoint.sh
+COPY ./entrypoint.sh /entrypoint.sh
+COPY ./template-files /template-files
 
-VOLUME /data
-
-RUN apt-get update && apt-get install -y wget git openjdk-17-jre
+RUN apt-get update && apt-get install -y wget git openjdk-17-jre nfs-common
 
 RUN wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 &&\
     chmod a+x /usr/local/bin/yq

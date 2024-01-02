@@ -3,7 +3,9 @@ version: "3"
 services:
 
   velocity:
-    image: robbelouwet/velocity
+    build:
+      context: .
+      dockerfile: ./velocity-docker/Dockerfile
     networks:
       mynet:
         ipv4_address: 10.0.0.2
@@ -18,7 +20,9 @@ services:
       - PAPER2_HOST=10.0.0.4:25565
 
   paper1:
-    image: robbelouwet/papermc
+    build:
+      context: .
+      dockerfile: ./paper-docker/Dockerfile
     networks:
       mynet:
         ipv4_address: 10.0.0.3
@@ -31,7 +35,9 @@ services:
       - JVM_ARGS=-Xms2G -Xmx2G
 
   paper2:
-    image: robbelouwet/papermc
+    build:
+      context: .
+      dockerfile: ./paper-docker/Dockerfile
     networks:
       mynet:
         ipv4_address: 10.0.0.4

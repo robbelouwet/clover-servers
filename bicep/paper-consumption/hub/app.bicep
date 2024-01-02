@@ -1,20 +1,29 @@
-param affix string
-param escapedAffix string
 param workspaceName string
-param storageName string
+param cappEnvName string
+param appName string
+param suffix string
 param vnetName string
 param cappEnvSubnetName string
+param storageName string
+param cappStorageDefName string
 param paperShareName string
 
 var location = resourceGroup().location
-var cappStorageDefName = '${affix}-velocity-storage-def'
 
 resource workspaceResource 'Microsoft.OperationalInsights/workspaces@2022-10-01' existing = {
   name: workspaceName
 }
 
+// resource storageAccResource 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {
+//   name: storageName
+// }
+
+// resource idPaperServer 'Microsoft.ManagedIdentity/userAssignedIdentities@2023-01-31' existing = {
+//   name: '${appName}-id-paper-${suffix}'
+// }
+
 resource cappEnvironment 'Microsoft.App/managedEnvironments@2022-10-01' = {
-  name: '${affix}-container-env'
+  name: cappEnvName
   location: location
   sku: { name: 'Consumption' }
   properties: {
@@ -36,10 +45,6 @@ resource cappEnvironment 'Microsoft.App/managedEnvironments@2022-10-01' = {
   dependsOn: [ workspaceResource ]
 }
 
-// resource storageAccResource 'Microsoft.Storage/storageAccounts@2023-01-01' existing = {
-//   name: storageName
-// }
-
 // resource velocityStorageDefModule 'Microsoft.App/managedEnvironments/storages@2023-05-01' = {
 //   name: cappStorageDefName
 //   parent: cappEnvironment
@@ -54,12 +59,8 @@ resource cappEnvironment 'Microsoft.App/managedEnvironments@2022-10-01' = {
 //   dependsOn: [ storageAccResource ]
 // }
 
-// resource cappEnvironment 'Microsoft.App/managedEnvironments@2023-05-01' existing = {
-//   name: '${affix}-container-env'
-// }
-
 resource velocityCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
-  name: '${affix}-velocity'
+  name: '${appName}-velocity'
   location: location
   properties: {
     managedEnvironmentId: cappEnvironment.id
@@ -80,25 +81,25 @@ resource velocityCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
     template: {
       containers: [
         {
-          image: 'robbelouwet/velocity:latest'
+          image: 'robbelouwet/velocity'
           name: 'velocity-container'
           env: [
             {
               name: 'VELOCITY_SECRET'
               value: 'supersecret1234'
             }
-            {
+            /*             {
               name: 'PAPER1_HOST'
               value: '${paperCAPP.properties.configuration.ingress.fqdn}:25566'
             }
             {
               name: 'PAPER2_HOST'
               value: '${paperCAPP.properties.configuration.ingress.fqdn}:25566'
-            }
+            } */
           ]
           resources: {
-            cpu: json('0.5')
-            memory: '1Gi'
+            cpu: json('1')
+            memory: '2Gi'
           }
         }
       ]
@@ -107,72 +108,76 @@ resource velocityCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
         maxReplicas: 10
       }
     }
-  }
-  dependsOn: [ cappEnvironment ]
-}
+  } }
 
-resource paperCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
-  name: '${affix}-server'
-  location: location
-  properties: {
-    managedEnvironmentId: cappEnvironment.id
-    configuration: {
-      ingress: {
-        external: true
-        targetPort: 25565
-        exposedPort: 25566
-        transport: 'Tcp'
-        traffic: [
-          {
-            weight: 100
-            latestRevision: true
-          }
-        ]
-      }
-    }
-    template: {
-      containers: [
-        {
-          image: 'robbelouwet/papermc:latest'
-          name: 'server-container'
-          env: [
-            {
-              name: 'VELOCITY_SECRET'
-              value: 'supersecret1234'
-            }
-            {
-              name: 'JVM_ARGS'
-              value: '-Xms1G -Xmx2G'
-            }
-          ]
-          resources: {
-            cpu: json('1.5')
-            memory: '3Gi'
-          }
-          probes: []
-          // volumeMounts: [
-          //   {
-          //     volumeName: paperShareName
-          //     mountPath: '/data'
-          //   }
-          // ]
-        }
-      ]
-      scale: {
-        minReplicas: 1
-        maxReplicas: 1
-      }
-      // volumes: [
-      //   {
-      //     name: paperShareName
-      //     storageType: 'AzureFile'
-      //     storageName: cappStorageDefName
-      //   }
-      // ]
-    }
-  }
-  dependsOn: [ cappEnvironment ]
-}
+// resource paperCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
+//   name: '${appName}-server'
+//   location: location
+//   identity: {
+//     type: 'UserAssigned'
+//     userAssignedIdentities: {
+//       '${idPaperServer.id}': {}
+//     }
+//   }
+//   properties: {
+//     managedEnvironmentId: cappEnvironment.id
+//     configuration: {
+//       ingress: {
+//         external: true
+//         targetPort: 25565
+//         exposedPort: 25566
+//         transport: 'Tcp'
+//         traffic: [
+//           {
+//             weight: 100
+//             latestRevision: true
+//           }
+//         ]
+//       }
+//     }
+//     template: {
+//       containers: [
+//         {
+//           image: 'robbelouwet/papermc:latest'
+//           name: 'server-container'
+//           env: [
+//             {
+//               name: 'VELOCITY_SECRET'
+//               value: 'supersecret1234'
+//             }
+//             {
+//               name: 'JVM_ARGS'
+//               value: '-Xms1G -Xmx2G'
+//             }
+//           ]
+//           resources: {
+//             cpu: json('1.5')
+//             memory: '3Gi'
+//           }
+//           probes: []
+//           volumeMounts: [
+//             {
+//               volumeName: paperShareName
+//               mountPath: '/data'
+//             }
+//           ]
+//         }
+//       ]
+//       scale: {
+//         minReplicas: 1
+//         maxReplicas: 1
+//       }
+//       volumes: [
+//         {
+//           name: paperShareName
+//           storageType: 'AzureFile'
+//           storageName: cappStorageDefName
+//         }
+//       ]
+//     }
+//   }
+//   dependsOn: [ cappEnvironment ]
+// }
 
 // resource ubuntuCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
 //   name: '${affix}-ubuntu'
@@ -239,5 +244,4 @@ resource paperCAPP 'Microsoft.App/containerapps@2023-05-02-preview' = {
 // }
 
 // output storageAccountAccessKey string = storageAccResource.listKeys().keys[0].value
-
 // output workspacePrimaryKey string = workspaceResource.listKeys().primarySharedKey
