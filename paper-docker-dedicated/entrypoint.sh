@@ -17,10 +17,10 @@ fi
 cd /data
 
 # Inject velocity secret
-yq -i '.proxies.velocity.secret = strenv(VELOCITY_SECRET)' /data/config/paper-global.yml
+# yq -i '.proxies.velocity.secret = strenv(VELOCITY_SECRET)' /data/config/paper-global.yml
 
 # remove synced .lock files
-rm -rf world*/session.lock
+#rm -rf world*/session.lock
 
 # Run the server
-java -jar $JVM_ARGS /*.jar
+python3 /process_stdio_wrapper.py java -jar $JVM_ARGS /*.jar --nogui
