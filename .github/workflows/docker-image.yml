@@ -26,17 +26,17 @@ jobs:
     # Publish paper-consumption
     - name: Build and Push paper-consumption
       run: |
-        docker build -t robbelouwet/paper-consumption -f Dockerfile paper-docker-consumption
+        docker build -t robbelouwet/paper-consumption -f paper-docker-consumption/Dockerfile
         docker push robbelouwet/paper-consumption
     
     # Publish paper-dedicated
     - name: Build and Push paper-dedicated
       run: |
-        docker build -t robbelouwet/paper-dedicated -f Dockerfile paper-docker-dedicated
+        docker build -t robbelouwet/paper-dedicated -f paper-docker-dedicated/Dockerfile
         docker push robbelouwet/paper-dedicated
         
     # Publish velocity-dedicated
     - name: Build and Push velocity-dedicated
       run: |
-        docker build -t robbelouwet/velocity-dedicated -f Dockerfile velocity-docker
+        docker build -t robbelouwet/velocity-dedicated -f velocity-docker/Dockerfile
         docker push robbelouwet/velocity-dedicated
