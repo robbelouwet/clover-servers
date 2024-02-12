@@ -1,0 +1,42 @@
+name: Docker Image CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+    
+env:
+  DOCKER_REGISTRY_USERNAME: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+  DOCKER_REGISTRY_PASSWORD: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+
+    # Registry login
+    - name: Login to Docker Registry
+      run: echo "${DOCKER_REGISTRY_PASSWORD}" | docker login -u "${DOCKER_REGISTRY_USERNAME}" --password-stdin ${DOCKER_REGISTRY_URL}
+    
+    # Publish paper-consumption
+    - name: Build and Push paper-consumption
+      run: |
+        docker build -t robbelouwet/paper-consumption -f Dockerfile paper-docker-consumption
+        docker push robbelouwet/paper-consumption
+    
+    # Publish paper-dedicated
+    - name: Build and Push paper-dedicated
+      run: |
+        docker build -t robbelouwet/paper-dedicated -f Dockerfile paper-docker-dedicated
+        docker push robbelouwet/paper-dedicated
+        
+    # Publish velocity-dedicated
+    - name: Build and Push velocity-dedicated
+      run: |
+        docker build -t robbelouwet/velocity-dedicated -f Dockerfile velocity-docker
+        docker push robbelouwet/velocity-dedicated
