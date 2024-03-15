@@ -3,7 +3,7 @@
 echo "JVM_ARGS: ${JVM_ARGS}"
 
 # Set up server files if we're running for the first time
-if [ -z "$(ls -A /data)" ]; then
+if [ ! -d "/data" ] || [ -z "$(ls -A /data)" ]; then
     echo "Setting up files!"
 
     mkdir /data
