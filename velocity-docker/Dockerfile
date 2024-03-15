@@ -6,8 +6,7 @@ EXPOSE 25565/udp
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./velocity-proxy-3.3.0-SNAPSHOT-all.jar /velocity-proxy-3.3.0-SNAPSHOT-all.jar
 
-RUN mkdir /template-files
-COPY ./template-files/* /template-files
+COPY ./template-files/* /
 
 RUN apt-get update && apt-get install -y wget git openjdk-17-jre perl
 
