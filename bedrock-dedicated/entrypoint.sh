@@ -7,15 +7,16 @@ if [ ! -d "/data" ] || [ -z "$(ls -A /data)" ]; then
     echo "Setting up files!"
 
     mkdir /data
+
+    # copy the bootstrapped server files
+    cp -r -f /bootstrap-server-files/* /data
     
     # copy the template files
     cp -r /template-files/* /data
 
-    # copy the bootstrapped server files
-    cp -r /bootstrap-server-files/* /data
-
     echo "files copied!"
-fi
+
+    fi
 
 cd /data
 

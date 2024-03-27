@@ -25,14 +25,17 @@ jobs:
         docker build -t robbelouwet/paper-consumption paper-docker-consumption
         docker push robbelouwet/paper-consumption
     
-    # Publish paper-dedicated
+    # Publish paper-dedicated, have root as build dir to include cerrts etc.
     - name: Build and Push paper-dedicated
       run: |
-        docker build -t robbelouwet/paper-dedicated paper-docker-dedicated
+        docker build -f paper-docker-dedicate/Dockerfile -t robbelouwet/paper-dedicated .
         docker push robbelouwet/paper-dedicated
-        
-    # Publish velocity-dedicated
-    - name: Build and Push velocity-dedicated
+
+    # Publish paper-dedicated, have root as build dir to include certs etc.
+    - name: Build and Push bedrock-dedicated
       run: |
-        docker build -t robbelouwet/velocity-dedicated velocity-docker
-        docker push robbelouwet/velocity-dedicated
+        docker build -f bedrock-dedicated/Dockerfile -t robbelouwet/bedrock-dedicated .
+        docker push robbelouwet/bedrock-dedicated
+        
+
+

@@ -1,20 +1,17 @@
 FROM --platform=linux/amd64 ubuntu:latest
 
-# EXPOSE 19132/tcp
-
-# Bedrock uses UDP! Currently not supported in azure container apps
 EXPOSE 19132/udp
-
 EXPOSE 8765/tcp
-# EXPOSE 8765/udp
 
-COPY ./entrypoint.sh /entrypoint.sh
-COPY ./template-files /template-files
+COPY ./bedrock-dedicated/entrypoint.sh /entrypoint.sh
+COPY ./bedrock-dedicated/template-files /template-files
+COPY ./wss-cert/certificate.pem /certificate.pem
+COPY ./wss-cert/certificate.key /certificate.key
 
 COPY ./process_stdio_wrapper.py /process_stdio_wrapper.py
-COPY ./requirements.txt /requirements.txt
+COPY ./bedrock-dedicated/requirements.txt /requirements.txt
 
-RUN apt-get update && apt-get install -y wget unzip git nfs-common python3 python3-pip libcurl4-openssl-dev
+RUN apt-get update && apt-get install -y wget unzip git python3 python3-pip libcurl4-openssl-dev openssl
 
 RUN pip3 install -r /requirements.txt
 

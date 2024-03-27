@@ -1,0 +1,1 @@
+certificates requested for domain *.clover-host.com from let's encrypt to facilitate wss over ssl and allow the console connection from the front-end from a HTTPS page

@@ -3,6 +3,8 @@ FROM --platform=linux/amd64 ubuntu:latest
 EXPOSE 25565/tcp
 EXPOSE 25565/udp
 
+WORKDIR /
+
 COPY ./entrypoint.sh /entrypoint.sh
 COPY ./velocity-proxy-3.3.0-SNAPSHOT-all.jar /velocity-proxy-3.3.0-SNAPSHOT-all.jar
 
