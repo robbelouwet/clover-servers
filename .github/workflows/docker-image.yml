@@ -28,7 +28,7 @@ jobs:
     # Publish paper-dedicated, have root as build dir to include cerrts etc.
     - name: Build and Push paper-dedicated
       run: |
-        docker build -f paper-docker-dedicate/Dockerfile -t robbelouwet/paper-dedicated .
+        docker build -f paper-docker-dedicated/Dockerfile -t robbelouwet/paper-dedicated .
         docker push robbelouwet/paper-dedicated
 
     # Publish paper-dedicated, have root as build dir to include certs etc.
