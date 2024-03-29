@@ -6,8 +6,6 @@ echo "JVM_ARGS: ${JVM_ARGS}"
 if [ ! -d "/data" ] || [ -z "$(ls -A /data)" ]; then
     echo "Setting up files!"
 
-    mkdir /data
-
     # copy the bootstrapped server files
     cp -r -f /bootstrap-server-files/* /data
     
