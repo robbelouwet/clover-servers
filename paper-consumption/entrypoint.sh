@@ -18,7 +18,7 @@ cd /data
 yq -i '.proxies.velocity.secret = strenv(VELOCITY_SECRET)' /data/config/paper-global.yml
 
 # remove synced .lock files
-#rm -rf world*/session.lock
+rm -rf world*/session.lock
 
 # Run the server
 python3 /process_stdio_wrapper.py java -jar $JVM_ARGS /*.jar --nogui
