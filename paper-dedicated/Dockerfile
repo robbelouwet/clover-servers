@@ -11,7 +11,7 @@ COPY ./wss-cert/certificate.key /certificate.key
 COPY ./process_stdio_wrapper.py /process_stdio_wrapper.py
 COPY ./paper-dedicated/requirements.txt /requirements.txt
 
-RUN apt-get update && apt-get install -y wget git openjdk-17-jre python3 python3-pip
+RUN apt-get update && apt-get install -y wget git openjdk-17-jre python3 python3-pip bc
 
 RUN pip3 install -r /requirements.txt
 
