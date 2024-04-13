@@ -16,6 +16,8 @@ if [ ! -d "/data" ] || [ -z "$(ls -A /data)" ]; then
     cp -r /template-files/* /data
 
     echo "files copied!"
+else 
+    echo "Skipping files setup!"
 fi
 
 cd /data
