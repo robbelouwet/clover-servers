@@ -22,7 +22,7 @@ COPY ./process_stdio_wrapper.py /process_stdio_wrapper.py
 COPY ./requirements.txt /requirements.txt
 
 RUN apt update && apt install -y wget bc
-RUN pip3 install --break-system-packages -r /requirements.txt
+RUN pip3 install -r /requirements.txt
 RUN wget -qO /usr/local/bin/yq https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64
 RUN chmod a+x /usr/local/bin/yq
 

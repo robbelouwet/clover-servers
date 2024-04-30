@@ -30,5 +30,5 @@ cd /data
 
 # Run the server
 cd /data
-server_jar=$(ls | grep '\.jar$' | grep -v 'forge')
+server_jar=$(ls | grep '\.jar$' | grep 'forge')
 python3 /process_stdio_wrapper.py java -jar -Xms${minRAM}M -Xmx${maxRAM}M ./${server_jar} --nogui
