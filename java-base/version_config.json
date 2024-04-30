@@ -1,0 +1,14 @@
+[
+    {
+        "jvm_version": "8",
+        "python_version": "3.9"
+    },
+    {
+        "jvm_version": "11",
+        "python_version": "3.9"
+    },
+    {
+        "jvm_version": "17",
+        "python_version": "3.9"
+    }
+]
