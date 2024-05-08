@@ -1,0 +1,282 @@
+[
+    {
+        "version": "1.8.8",
+        "build": "445",
+        "channel": "default",
+        "java_version": "8",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.8.8/builds/445/downloads/paper-1.8.8-445.jar"
+    },
+    {
+        "version": "1.9.4",
+        "build": "775",
+        "channel": "default",
+        "java_version":  "8",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.9.4/builds/775/downloads/paper-1.9.4-775.jar"
+    },
+    {
+        "version": "1.10.2",
+        "build": "918",
+        "channel": "default",
+        "java_version":  "8",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.10.2/builds/918/downloads/paper-1.10.2-918.jar"
+    },
+    {
+        "version": "1.11.2",
+        "build": "1106",
+        "channel": "default",
+        "java_version":  "8",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.11.2/builds/1106/downloads/paper-1.11.2-1106.jar"
+    },
+    {
+        "version": "1.12",
+        "build": "1169",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.12/builds/1169/downloads/paper-1.12-1169.jar"
+    },
+    {
+        "version": "1.12.1",
+        "build": "1204",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.12.1/builds/1204/downloads/paper-1.12.1-1204.jar"
+    },
+    {
+        "version": "1.12.2",
+        "build": "1620",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.12.2/builds/1620/downloads/paper-1.12.2-1620.jar"
+    },
+    {
+        "version": "1.13-pre7",
+        "build": "12",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.13-pre7/builds/12/downloads/paper-1.13-pre7-12.jar"
+    },
+    {
+        "version": "1.13",
+        "build": "173",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.13/builds/173/downloads/paper-1.13-173.jar"
+    },
+    {
+        "version": "1.13.1",
+        "build": "386",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.13.1/builds/386/downloads/paper-1.13.1-386.jar"
+    },
+    {
+        "version": "1.13.2",
+        "build": "657",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.13.2/builds/657/downloads/paper-1.13.2-657.jar"
+    },
+    {
+        "version": "1.14",
+        "build": "17",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.14/builds/17/downloads/paper-1.14-17.jar"
+    },
+    {
+        "version": "1.14.1",
+        "build": "50",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.14.1/builds/50/downloads/paper-1.14.1-50.jar"
+    },
+    {
+        "version": "1.14.2",
+        "build": "107",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.14.2/builds/107/downloads/paper-1.14.2-107.jar"
+    },
+    {
+        "version": "1.14.3",
+        "build": "134",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.14.3/builds/134/downloads/paper-1.14.3-134.jar"
+    },
+    {
+        "version": "1.14.4",
+        "build": "245",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.14.4/builds/245/downloads/paper-1.14.4-245.jar"
+    },
+    {
+        "version": "1.15",
+        "build": "21",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.15/builds/21/downloads/paper-1.15-21.jar"
+    },
+    {
+        "version": "1.15.1",
+        "build": "62",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.15.1/builds/62/downloads/paper-1.15.1-62.jar"
+    },
+    {
+        "version": "1.15.2",
+        "build": "393",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.15.2/builds/393/downloads/paper-1.15.2-393.jar"
+    },
+    {
+        "version": "1.16.1",
+        "build": "138",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.16.1/builds/138/downloads/paper-1.16.1-138.jar"
+    },
+    {
+        "version": "1.16.2",
+        "build": "189",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.16.2/builds/189/downloads/paper-1.16.2-189.jar"
+    },
+    {
+        "version": "1.16.3",
+        "build": "253",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.16.3/builds/253/downloads/paper-1.16.3-253.jar"
+    },
+    {
+        "version": "1.16.4",
+        "build": "416",
+        "channel": "default",
+        "java_version":  "11",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.16.4/builds/416/downloads/paper-1.16.4-416.jar"
+    },
+    {
+        "version": "1.16.5",
+        "build": "794",
+        "channel": "default",
+        "java_version":  "16",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.16.5/builds/794/downloads/paper-1.16.5-794.jar"
+    },
+    {
+        "version": "1.17",
+        "build": "79",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.17/builds/79/downloads/paper-1.17-79.jar"
+    },
+    {
+        "version": "1.17.1",
+        "build": "411",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.17.1/builds/411/downloads/paper-1.17.1-411.jar"
+    },
+    {
+        "version": "1.18",
+        "build": "66",
+        "channel": "experimental",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.18/builds/66/downloads/paper-1.18-66.jar"
+    },
+    {
+        "version": "1.18.1",
+        "build": "216",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.18.1/builds/216/downloads/paper-1.18.1-216.jar"
+    },
+    {
+        "version": "1.18.2",
+        "build": "388",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.18.2/builds/388/downloads/paper-1.18.2-388.jar"
+    },
+    {
+        "version": "1.19",
+        "build": "81",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.19/builds/81/downloads/paper-1.19-81.jar"
+    },
+    {
+        "version": "1.19.1",
+        "build": "111",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.19.1/builds/111/downloads/paper-1.19.1-111.jar"
+    },
+    {
+        "version": "1.19.2",
+        "build": "307",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.19.2/builds/307/downloads/paper-1.19.2-307.jar"
+    },
+    {
+        "version": "1.19.3",
+        "build": "448",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.19.3/builds/448/downloads/paper-1.19.3-448.jar"
+    },
+    {
+        "version": "1.19.4",
+        "build": "550",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.19.4/builds/550/downloads/paper-1.19.4-550.jar"
+    },
+    {
+        "version": "1.20",
+        "build": "17",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.20/builds/17/downloads/paper-1.20-17.jar"
+    },
+    {
+        "version": "1.20.1",
+        "build": "196",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.20.1/builds/196/downloads/paper-1.20.1-196.jar"
+    },
+    {
+        "version": "1.20.2",
+        "build": "318",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.20.2/builds/318/downloads/paper-1.20.2-318.jar"
+    },
+    {
+        "version": "1.20.4",
+        "build": "496",
+        "channel": "default",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.20.4/builds/496/downloads/paper-1.20.4-496.jar"
+    },
+    {
+        "version": "1.20.5",
+        "build": "22",
+        "channel": "experimental",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.20.5/builds/22/downloads/paper-1.20.5-22.jar"
+    },
+    {
+        "version": "1.20.6",
+        "build": "32",
+        "channel": "experimental",
+        "java_version":  "21",
+        "download_link": "https://api.papermc.io/v2/projects/paper/versions/1.20.6/builds/32/downloads/paper-1.20.6-32.jar"
+    }
+]
